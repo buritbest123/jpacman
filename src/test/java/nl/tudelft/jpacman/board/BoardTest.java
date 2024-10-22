@@ -27,7 +27,8 @@ public class BoardTest {
         // Assert that squareAt(0, 0) returns the correct square from grid
         assertThat(board.squareAt(0, 0)).isEqualTo(basicGrid[0][0]);
     }
-
+    
+    // New Test Cases
     @Test
     void testInvariantWithValidGrid() {
         // Create a grid with all valid squares
@@ -41,6 +42,7 @@ public class BoardTest {
         assertThat(board.invariant()).isTrue();
     }
 
+    // New Test Cases
     @Test
     void testInvariantWithEmptyGrid() {
         // Create an empty grid (boundary case)
