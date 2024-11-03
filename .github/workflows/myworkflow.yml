@@ -14,7 +14,8 @@ on:
     branches: [ "master" ]
 
 permissions:
-  contents: read
+  contents: write
+  packages: write
 
 jobs:
   build:
@@ -33,6 +34,24 @@ jobs:
     - name: Build with Gradle
       run: xvfb-run ./gradlew build
 
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+    - name: Generate JaCoCo Badge
+      uses: cicirello/jacoco-badge-generator@v2
       with:
-        arguments: build
+        badges-directory: .github/badges
+        generate-coverage-badge: true
+        coverage-badge-filename: jacoco.svg
+        generate-branches-badge: true
+        branches-badge-filename: branches.svg
+        jacoco-csv-file: build/reports/jacoco/test/jacocoTestReport.csv
+
+    - name: Check badge creation
+      run: ls -l .github/badges
+      
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+          default_author: github_actions
+          message: 'Updated JaCoCo badges'
+          add: '.github/badges/*.svg'
+    - name: Show test results
+      run: cat build/reports/jacoco/test/jacocoTestReport.csv
