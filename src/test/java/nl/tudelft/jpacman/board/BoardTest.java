@@ -62,7 +62,9 @@ public class BoardTest {
         Square[][] grid = new Square[0][0];
         Board board = new Board(grid);
 
-        // Assert that the invariant returns true for an empty grid, depending on the logic of the invariant method
-        assertThat(board.invariant()).isTrue();  // Depending on the logic of invariant method
+        // Assert that the invariant returns true for an empty grid,
+        // depending on the logic of the invariant method
+        assertThat(board.invariant())
+            .isTrue();  // Depending on the logic of invariant method
     }
 }
