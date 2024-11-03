@@ -1,9 +1,5 @@
 # JPacman
 
-![Build Status](https://github.com/buritbest123/jpacman/actions/workflows/myworkflow.yml/badge.svg) 
-![Coverage](.github/badges/jacoco.svg)
-![Branches](.github/badges/branches.svg)
-
 ## About
 
 Pacman-like game used for teaching software testing.
@@ -38,4 +34,3 @@ Main contributors:
 3. To run the test suite and static analysis tools: `./gradlew check`
     1. For tests only run `./gradlew test`
     2. For static analysis tools only run `./gradlew staticAnalysis`
-	 
