@@ -3,8 +3,14 @@ package nl.tudelft.jpacman.board;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for the Board functionality.
+ */
 public class BoardTest {
 
+    /**
+     * Tests if the board is valid with a single square.
+     */
     @Test
     void testBoardWithValidSquare() {
         Square basicSquare = new BasicSquare();
@@ -16,6 +22,9 @@ public class BoardTest {
         assertThat(board.invariant()).isTrue();
     }
 
+    /**
+     * Tests if squareAt(0, 0) returns the correct square from the grid.
+     */
     @Test
     void testBoardWithOneNullSquare() {
         Square basicSquare = new BasicSquare();
@@ -24,10 +33,13 @@ public class BoardTest {
         Board board = new Board(basicGrid);
 
         // Assert that squareAt(0, 0) returns the correct square from grid
-        assertThat(board.squareAt(0, 0)).isEqualTo(basicGrid[0][0]);
+        assertThat(board.squareAt(0, 0))
+            .isEqualTo(basicGrid[0][0]);
     }
-    
-    // New Test Cases
+
+    /**
+     * Tests that the invariant method returns true for a grid with all valid squares.
+     */
     @Test
     void testInvariantWithValidGrid() {
         // Create a grid with all valid squares
@@ -41,7 +53,9 @@ public class BoardTest {
         assertThat(board.invariant()).isTrue();
     }
 
-    // New Test Cases
+    /**
+     * Tests that the invariant method handles an empty grid correctly.
+     */
     @Test
     void testInvariantWithEmptyGrid() {
         // Create an empty grid (boundary case)
@@ -51,5 +65,4 @@ public class BoardTest {
         // Assert that the invariant returns true for an empty grid, depending on the logic of the invariant method
         assertThat(board.invariant()).isTrue();  // Depending on the logic of invariant method
     }
-
 }
