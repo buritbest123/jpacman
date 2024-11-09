@@ -1,4 +1,5 @@
 package nl.tudelft.jpacman.level;
+
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.npc.ghost.Blinky;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ public class MapParserTest {
         MapParser mapParser = new MapParser(levelFactory, boardFactory);
         ArrayList<String> map = new ArrayList<>();
         map.add("############");
-        map.add("#P G#");
+        map.add("#P        G#");
         map.add("############");
         mapParser.parseMap(map);
     }
