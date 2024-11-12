@@ -64,12 +64,21 @@ public class MapParserTest {
     @Test
     public void testParseMapWrong1() {
         Exception thrown =
+            // Assert that a PacmanConfigurationException is thrown for invalid map input
             Assertions.assertThrows(PacmanConfigurationException.class, () -> {
+
+                // Initialize mocks for dependencies
                 MockitoAnnotations.initMocks(this);
+
+                // Ensure boardFactory and levelFactory are not null before proceeding
                 assertNotNull(boardFactory);
                 assertNotNull(levelFactory);
+
+                // Create a new MapParser instance with the required factories
                 MapParser mapParser = new MapParser(levelFactory,
                     boardFactory);
+
+                // Prepare a map with inconsistent row lengths or invalid characters
                 ArrayList<String> map = new ArrayList<>();
                  /*
                  Create a map with inconsistent size between
